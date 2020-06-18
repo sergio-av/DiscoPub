@@ -25,9 +25,6 @@ public class RegistroCliente extends JFrame {
 	private JTextField textEmail;
 	private JPasswordField passwordField;
 	private JTextField textTelefono;
-	private JTextField textYear;
-	private JTextField textMes;
-	private JTextField textDia;
 	private JTextField textDireccion;
 	private JTextField textDni;
 	private JTextField textEdad;
@@ -36,7 +33,7 @@ public class RegistroCliente extends JFrame {
 	
 	public RegistroCliente() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 453, 495);
+		setBounds(100, 100, 453, 496);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -82,33 +79,6 @@ public class RegistroCliente extends JFrame {
 		contentPane.add(textTelefono);
 		textTelefono.setColumns(10);
 		
-		JLabel lblYear = new JLabel("A\u00F1o");
-		lblYear.setBounds(52, 258, 46, 14);
-		contentPane.add(lblYear);
-		
-		JLabel lblNewLabel_6 = new JLabel("Mes");
-		lblNewLabel_6.setBounds(108, 258, 46, 14);
-		contentPane.add(lblNewLabel_6);
-		
-		JLabel lblNewLabel_7 = new JLabel("Dia");
-		lblNewLabel_7.setBounds(153, 258, 46, 14);
-		contentPane.add(lblNewLabel_7);
-		
-		textYear = new JTextField();
-		textYear.setBounds(42, 283, 56, 20);
-		contentPane.add(textYear);
-		textYear.setColumns(10);
-		
-		textMes = new JTextField();
-		textMes.setBounds(108, 283, 35, 20);
-		contentPane.add(textMes);
-		textMes.setColumns(10);
-		
-		textDia = new JTextField();
-		textDia.setBounds(153, 283, 35, 20);
-		contentPane.add(textDia);
-		textDia.setColumns(10);
-		
 		JLabel lblNewLabel_8 = new JLabel("Direccion");
 		lblNewLabel_8.setBounds(182, 325, 72, 14);
 		contentPane.add(lblNewLabel_8);
@@ -128,12 +98,12 @@ public class RegistroCliente extends JFrame {
 		textDni.setColumns(10);
 		
 		textEdad = new JTextField();
-		textEdad.setBounds(279, 283, 86, 20);
+		textEdad.setBounds(109, 280, 86, 20);
 		contentPane.add(textEdad);
 		textEdad.setColumns(10);
 		
 		JLabel lblEdad = new JLabel("Edad:");
-		lblEdad.setBounds(223, 286, 46, 14);
+		lblEdad.setBounds(42, 283, 46, 14);
 		contentPane.add(lblEdad);
 		
 		

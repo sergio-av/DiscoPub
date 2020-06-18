@@ -24,7 +24,7 @@ public class Clientes {
 		
 	}
 	//***********	Comprobar Contraseña y usuario	**************
-		public boolean checkUserAndPass(String email, String password) {
+	/*	public boolean checkUserAndPass(String email, String password) {
 			ResultSet clienteBD = conexion.EjecutarSentencia("SELECT * FROM clientes WHERE EMAIL='"+email+"' AND PASSWORD='"+password+"'");
 			
 			try {
@@ -38,7 +38,7 @@ public class Clientes {
 			ResultSet clienteBD = conexion.EjecutarSentencia("SELECT * FROM clientes WHERE EMAIL='"+email+"' AND PASSWORD='"+password+"'");
 			Cliente cliente = new modelo.Clientes().getUserByEmailAndPass(email, password);
 			return cliente;
-		}
+		}*/
 		//***********	Recoger Cliente	**************************
 		
 		public Cliente recogerCliente(String nombreCliente, String passwordCliente) {
@@ -64,6 +64,32 @@ public class Clientes {
 			/* Transformacion */
 			return null;
 		}
+	//-------------------------------------------------------------------------------------------------------------------------------------------------------	
+		public Cliente recogerClienteNombre(int idRecogido) {
+			ResultSet resultado = conexion.EjecutarSentencia("SELECT * FROM clientes WHERE ID='"+idRecogido+"';");
+			try {
+				if(resultado.next()) {
+					
+					int id = resultado.getInt("id");
+					int numero_movil= resultado.getInt("numero_movil");
+					int edad = resultado.getInt("edad");
+					String dni = resultado.getString("dni");
+					String password = resultado.getString("password");
+					String nombre = resultado.getString("nombre");
+					String email = resultado.getString("email");
+					String direccion = resultado.getString("direccion");
+					
+					Cliente clienteRecogido = new Cliente( edad, dni, id,  numero_movil,  nombre,  direccion, email, password);
+					return clienteRecogido;
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			/* Transformacion */
+			return null;
+		}
+		
+		
 		
 		//***********	Obtener todos los clientes	************************
 		public ArrayList<Cliente> recogerTodosClientes(){
@@ -89,8 +115,16 @@ public class Clientes {
 			}
 			/* Transformacion */
 			return clientes;
+			
 		}
 		
+		//****************** Actualizar cliente		******************
+		
+		public void ActualizarCliente(String nombreCliente, String emailCliente, String dniCliente, String passwordCliente, String direccionCliente, int edadCliente, int numero_movilCliente, int id) {
+
+			conexion.Conectar();
+			conexion.EjecutarUpdate("UPDATE Clientes SET NOMBRE = '"+nombreCliente+"',EMAIL = '"+emailCliente+"',NUMERO_MOVIL = '"+numero_movilCliente+"',EDAD = '"+edadCliente+"',PASSWORD = '"+passwordCliente+"',DIRECCION = '"+direccionCliente+"',DNI = '"+dniCliente+"' Where ID = '"+id+"'");;
+		}
 		
 		
 }

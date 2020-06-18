@@ -69,8 +69,8 @@ public class Principal extends JFrame {
 		
 		//Botones
 		
-		JButton btnIniciarSesion = new JButton("Iniciar Sesi\u00F3n");
-		btnIniciarSesion.addMouseListener(new MouseAdapter() {
+		JButton btnIniciarCliente = new JButton("Iniciar Cliente");
+		btnIniciarCliente.addMouseListener(new MouseAdapter() {
 			//Accion al hacer click
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -80,8 +80,8 @@ public class Principal extends JFrame {
 				new controlador.Login().iniciarSesion(nombreCliente, passwordCliente);
 			}
 		});
-		btnIniciarSesion.setBounds(195, 151, 129, 23);
-		contentPane.add(btnIniciarSesion);
+		btnIniciarCliente.setBounds(68, 162, 181, 23);
+		contentPane.add(btnIniciarCliente);
 		
 		JButton btnRegistrarCliente = new JButton("Registrarte\r\n como \r\nCliente");
 		btnRegistrarCliente.addMouseListener(new MouseAdapter() {
@@ -100,10 +100,6 @@ public class Principal extends JFrame {
 				});
 			}
 		});
-		btnRegistrarCliente.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 		
 		btnRegistrarCliente.setBounds(68, 196, 181, 33);
 		contentPane.add(btnRegistrarCliente);
@@ -117,11 +113,37 @@ public class Principal extends JFrame {
 			}
 		});
 		btnRegistrarEmpresa.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							RegistroEmpresa frame = new RegistroEmpresa();
+							frame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+				
+				
 			}
 		});
+
 		
 		btnRegistrarEmpresa.setBounds(259, 196, 209, 33);
 		contentPane.add(btnRegistrarEmpresa);
+		
+		JButton btnIniciarEmpresa = new JButton("Iniciar Empresa");
+		btnIniciarEmpresa.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String nombreEmpresa = textNombre.getText();
+				String passwordEmpresa = textPassword.getText();
+				new controlador.Login().iniciarSesionEmpresa(nombreEmpresa, passwordEmpresa);
+				
+			}
+		});
+		btnIniciarEmpresa.setBounds(259, 162, 209, 23);
+		contentPane.add(btnIniciarEmpresa);
 	}
 }

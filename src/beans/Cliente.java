@@ -14,6 +14,12 @@ public class Cliente extends Usuario{
 	
 	public Cliente() {}
 	
+	public Cliente(int edad,String dni, int numero_movil, String nombre, String direccion, String email, String password) {
+		super( numero_movil,  nombre,  direccion,  email, password);
+		this.edad=edad;
+		this.dni=dni;
+	}
+	
 	public Cliente(int edad,String dni,int id, int numero_movil, String nombre, String direccion, String email, String password) {
 		super(id, numero_movil,  nombre,  direccion,  email, password);
 		this.edad=edad;
@@ -37,14 +43,6 @@ public class Cliente extends Usuario{
 	
 	
 	
-	//Metodos
-	public  int obtener_edad() {
-		
-		int year=0;
-		int month=0;
-		int day=0;
-		
-		return edad=Metodos.calcular_edad(new GregorianCalendar(year,month,day));
-	}
+
 	
 }

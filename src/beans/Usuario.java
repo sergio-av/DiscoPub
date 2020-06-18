@@ -24,6 +24,14 @@ public class Usuario {
 		this.direccion=direccion;
 		
 	}
+	public Usuario( int numero_movil, String nombre, String direccion, String email,String password ){
+		this.password=password;
+		this.numero_movil=numero_movil;
+		this.nombre=nombre;
+		this.direccion=direccion;
+		this.direccion=direccion;
+		
+	}
 	
 	/*GET AND SET */
 	

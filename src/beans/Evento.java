@@ -5,23 +5,27 @@ public class Evento {
 	private int id;
 	private int aforo;
 	private int precio;
-	private int entradas_totales;
-	private int entradas_restantes;
+	private int entradas;
 	private String nombre;
 	private String localizacion;
 	
 	//Constructores
-	Evento(){}
-	Evento(int id,int aforo,int precio,int entradas_totales,int entradas_restantes,String nombre,String localizacion){
+	public Evento(){}
+	public Evento(int id,int aforo,int precio,int entradas,String nombre,String localizacion){
 		this.id=id;
 		this.aforo=aforo;
 		this.precio=precio;
-		this.entradas_totales=entradas_totales;
-		this.entradas_restantes=entradas_restantes;
+		this.entradas=entradas;
 		this.nombre=nombre;
 		this.localizacion=localizacion;
 	}
-	
+	public Evento(int aforo,int precio,int entradas,String nombre,String localizacion){
+		this.aforo=aforo;
+		this.precio=precio;
+		this.entradas=entradas;
+		this.nombre=nombre;
+		this.localizacion=localizacion;
+	}
 	
 	//GETS AND SETS
 	public int getId() {
@@ -42,18 +46,13 @@ public class Evento {
 	public void setPrecio(int precio) {
 		this.precio = precio;
 	}
-	public int getEntradas_totales() {
-		return entradas_totales;
+	public int getEntradas() {
+		return entradas;
 	}
-	public void setEntradas_totales(int entradas_totales) {
-		this.entradas_totales = entradas_totales;
+	public void setEntradas(int entradas) {
+		this.entradas = entradas;
 	}
-	public int getEntradas_restantes() {
-		return entradas_restantes;
-	}
-	public void setEntradas_restantes(int entradas_restantes) {
-		this.entradas_restantes = entradas_restantes;
-	}
+	
 	public String getNombre() {
 		return nombre;
 	}
